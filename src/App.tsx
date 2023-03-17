@@ -2,16 +2,19 @@ import React from "react";
 import { View,SafeAreaView,Text,StyleSheet,FlatList} from "react-native";
 import CardItem from "./components/CardItem";
 import data_json from "./data_json.json"
+import SearchBar from "./components/SearchBar";
 
 function App(){
   return(
     <SafeAreaView style={styles.container}>
+
       <View>
         <Text style={styles.title}>
           FURKAN SHOP
         </Text>
       </View>
-      <FlatList numColumns={2} data={data_json} renderItem={({item}) => <CardItem store={item}/>}/>
+      
+      <FlatList ListHeaderComponent={()=>(<SearchBar/>)} numColumns={2} data={data_json} renderItem={({item}) => <CardItem store={item}/>}/>
           
     </SafeAreaView>
   );
